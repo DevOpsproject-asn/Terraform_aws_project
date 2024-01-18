@@ -46,3 +46,15 @@ variable "max_size" {
   type = number
   default = 10
 }
+variable "instance_types" {
+  type = list(string)
+  default = [ "t2.micro" ]
+}
+
+variable "eks_node_role_polices" {
+  type = set(string)
+  default = ["arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
+    "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+    "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
+  "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"]
+}
